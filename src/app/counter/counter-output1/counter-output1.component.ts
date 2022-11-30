@@ -15,14 +15,14 @@ export class CounterOutput1Component implements OnInit {
   items: any = [];
   constructor(private http: HttpClient, private store: Store<{counter: CountInterface, loaddata: []}>) { }
   count?: number;
-  public count$?: Observable<{ counter: number }>;
+  public count$?: Observable<number>;
   public counterSubscription = new Subscription;
   ngOnInit() {
     this.counterSubscription = this.store.select(getCounter).subscribe((res) => {
       this.count = res
     })
 
-    this.count$ = this.store.select('counter');
+    this.count$ = this.store.select(getCounter);
     this.http.get('https://dummyjson.com/products').subscribe((data: any) => {
       this.items = data;
       this.store.dispatch(loaddata(this.items))

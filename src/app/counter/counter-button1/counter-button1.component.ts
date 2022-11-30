@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { addvalue, decreament, increament, reset } from '../state/counter.actions';
 import { getProducts } from '../state/counter.selectors';
 import { CountInterface } from '../state/counter.state';
@@ -9,14 +10,12 @@ import { CountInterface } from '../state/counter.state';
   styleUrls: ['./counter-button1.component.scss']
 })
 export class CounterButton1Component implements OnInit {
-  items: any = [];
+  items: any = new Observable<[]>;
   newValaue: any = 0;
   constructor(private store: Store<{counter: CountInterface, loaddata: []}>) { }
 
   ngOnInit(): void {
-    this.store.select(getProducts).subscribe((data: any) => {
-      console.log(data)
-    })
+    this.items = this.store.select(getProducts);
   }
   onIncreament(){
     this.store.dispatch(increament());

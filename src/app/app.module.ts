@@ -8,12 +8,14 @@ import { CounterComponent } from './counter/counter/counter.component';
 import { CounterOutputComponent } from './counter/counter-output/counter-output.component';
 import { CounterButtonComponent } from './counter/counter-button/counter-button.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer, counterReducerLoad } from './counter/state/counter.reducer';
+import { counterReducer, productReducerLoad } from './counter/state/counter.reducer';
 import { CounterButton1Component } from './counter/counter-button1/counter-button1.component';
 import { CounterOutput1Component } from './counter/counter-output1/counter-output1.component';
 import { Counter1Component } from './counter/counter1/counter1.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({counter: counterReducer, loaddata: counterReducerLoad}),
+    StoreModule.forRoot({counter: counterReducer, loaddata: productReducerLoad}),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production,
+    }),
     NgbModule
   ],
   providers: [],

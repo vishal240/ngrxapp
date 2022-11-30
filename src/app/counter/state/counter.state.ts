@@ -1,9 +1,15 @@
 export interface CountInterface {
-  counter: number,
+  counter: number
+}
+
+export interface ProductInterface {
   products: []
 }
 
-export const initialState: CountInterface = {
-  counter: 0,
+export const initialStateCount: CountInterface = {
+  counter: 0
+}
+
+export const initialStateProducts: ProductInterface = {
   products: []
 }

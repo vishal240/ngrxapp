@@ -15,3 +15,6 @@
     <button class="btn btn-warning" (click)="onReset()">Reset</button>
   </div>
 </div>
+  <div *ngFor="let item of (items | async); let i=index">
+    <p>{{item.brand}}</p>
+  </div>

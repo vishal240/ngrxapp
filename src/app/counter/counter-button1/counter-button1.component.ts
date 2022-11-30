@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { addvalue, decreament, increament, reset } from '../state/counter.actions';
+import { getProducts } from '../state/counter.selectors';
 import { CountInterface } from '../state/counter.state';
 @Component({
   selector: 'app-counter-button1',
@@ -13,7 +14,7 @@ export class CounterButton1Component implements OnInit {
   constructor(private store: Store<{counter: CountInterface, loaddata: []}>) { }
 
   ngOnInit(): void {
-    this.store.select('loaddata').subscribe((data: any) => {
+    this.store.select(getProducts).subscribe((data: any) => {
       console.log(data)
     })
   }

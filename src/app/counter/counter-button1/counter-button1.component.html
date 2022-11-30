@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-10 mb-2">
+    <input type="number" placeholder="Enetr Number" [(ngModel)]="newValaue" class="form-control">
+  </div>
+  <div class="col-md-2 mb-2">
+    <button class="btn btn-info" (click)="addData()" >Add</button>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-primary" (click)="onIncreament()">Increament</button>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-danger" (click)="onDecreament()">Decreament</button>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-warning" (click)="onReset()">Reset</button>
+  </div>
+</div>
